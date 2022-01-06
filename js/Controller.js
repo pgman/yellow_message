@@ -119,9 +119,9 @@ class Controller {
         /* debug start */
         $('body').keydown(e => {
             if(e.code === 'ArrowRight') {
-                Controller.frame();
+                //Controller.frame();
             } else if(e.code === 'KeyP') {
-                Util.downloadAsPng('ym.png');
+                //Util.downloadAsPng('ym.png');
             }        
         });        
         /* debug end */
