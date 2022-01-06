@@ -1,0 +1,12 @@
+@charset "UTF-8";
+#stgdlg {
+    display: none;
+}
+#stgdlg-bgm-volume-range, #stgdlg-se-volume-range {
+    width: 300px;
+}
+#stgdlg-bgm-volume-span, #stgdlg-se-volume-span {
+    margin-left: 30px;
+    width: 50px;
+    text-align: right;
+}

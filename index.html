@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Loading...</title>
+<!-- 
+[対応済みリスト]
+
+[TODOリスト]
+・SEを同時に鳴らさない設定
+・イエローデビル撃破時のティウン
+・デフォルトのメッセージ(33-4, moffunnyo,moffunki)を増やす
+・タイトル画面がダサい(特にYELLOW MESSAGEがダサい)
+・体力が満タンになる音がおかしい
+
+[TEST]
+ メッセージを全て消したときにちゃんと動きか調べる
+ -> clickとか
+
+[MEMO]
+ $('button, input, a').click(e => { e.preventDefault(); } ); これコメントアウトしてよいものか
+-->
+<link rel="stylesheet" href="css/Main.css">
+<link rel="stylesheet" href="css/StgDlg.css">
+<link rel="stylesheet" href="css/MsgDlg.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<script src="js/Controller.js"></script>
+<script src="js/Model.js"></script>
+<script src="js/View.js"></script>
+<script src="js/StgDlgController.js"></script>
+<script src="js/StgDlgModel.js"></script>
+<script src="js/StgDlgView.js"></script>
+<script src="js/MsgDlgController.js"></script>
+<script src="js/MsgDlgModel.js"></script>
+<script src="js/MsgDlgView.js"></script>
+<script src="js/FrameDefine.js"></script>
+<script src="js/ImgDefine.js"></script>
+<script src="js/Define.js"></script>
+<script src="js/Util.js"></script>
+<script>$(Controller.init);</script>
+</head>
+<body>
+<button id="settings-button" class="ui-button ui-widget ui-corner-all"><span class="ui-icon ui-icon-gear"></span>Settings</button>
+&nbsp;
+<select id="message-select"></select>
+<button id="create-message-button" class="ui-button ui-widget ui-corner-all"><span class="ui-icon ui-icon-document"></span>Create</button>
+<button id="edit-message-button" class="ui-button ui-widget ui-corner-all"><span class="ui-icon ui-icon-pencil"></span>Edit</button>
+<button id="delete-message-button" class="ui-button ui-widget ui-corner-all"><span class="ui-icon ui-icon-trash"></span>Delete</button>
+<br><br>
+<div id="canvas-div"></div>
+</body>
+</html>
