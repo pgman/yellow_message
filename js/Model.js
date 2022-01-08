@@ -915,14 +915,14 @@ class Model {
                 Model.rockAnimMode = '';
                 setTimeout(() => { 
                     Model.play('clear'); 
-                }, 2000);
+                }, 2000 * Define.BASE_FPS / Model.settings.fps);
                 setTimeout(() => { 
                     Model.reset(); 
                     View.update();
                     $('#create-message-button, #edit-message-button, #delete-message-button')
                     .button({ disabled: false });
                     $('#message-select').selectmenu({ disabled: false });
-                }, 10000);
+                }, 10000 * Define.BASE_FPS / Model.settings.fps);
             } else {
                 Model.blockData[Model.blockDataIndex].damaged = true;
                 Model.play('enemyDamage');
