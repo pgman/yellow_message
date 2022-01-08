@@ -15,10 +15,11 @@ class MsgDlgView {
                     <input id="msgdlg-block-radio" type="radio" name="msgdlg-click-type">
                     <label for="msgdlg-eye-radio">Eye</label>
                     <input id="msgdlg-eye-radio" type="radio" name="msgdlg-click-type">
-                    
+                    &nbsp;
+                    <button id="msgdlg-shuffle-order-button">Shuffle Order</button>
                 </div>
                 <div id="message-description">
-                    The eye can only be defined on the 2nd and 3rd lines.<span id="message-order-title">order</span>
+                    The eye can only be defined on the 2nd and 3rd lines.<span id="message-order-title">Order</span>
                 </div>
                 <canvas id="msgdlg-block-canvas" width="96" height="96"></canvas>
                 <ul id="msgdlg-block-order-sortable"></ul>
@@ -33,6 +34,7 @@ class MsgDlgView {
             height: 720,
         });
         $('[name="msgdlg-click-type"]').checkboxradio();
+        $('#msgdlg-shuffle-order-button').button();
     }
     static updateClickType() {
         const type = MsgDlgModel.clickType;
