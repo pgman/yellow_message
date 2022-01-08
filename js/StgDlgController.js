@@ -10,7 +10,7 @@ class StgDlgController {
     static attachEvents() { 
         $('#stgdlg').dialog({
             buttons: {
-                OK: function() {
+                OK: () => {
                     const error = StgDlgModel.errorCheck();
                     if(error) {
                         alert(error);
@@ -19,13 +19,13 @@ class StgDlgController {
                     if(StgDlgModel.okFunc) {
                         StgDlgModel.okFunc(StgDlgModel.settings);
                     }
-                    $(this).dialog('close');
+                    $('#stgdlg').dialog('close');
                 },
-                Cancel: function() {
+                Cancel: () => {
                     if(StgDlgModel.cancelFunc) {
                         StgDlgModel.cancelFunc();
                     }
-                    $(this).dialog('close');
+                    $('#stgdlg').dialog('close');
                 }
             }
         });
