@@ -32,6 +32,9 @@ class MsgDlgModel {
     	const data = MsgDlgModel.getCurrentData();
     	data.blocks = blocks;
     }
+    static shuffleOrder() {
+        MsgDlgModel.getCurrentData().blocks = Util.shuffle(MsgDlgModel.getCurrentData().blocks);
+    }
     static clickIndexCanvas(e) {
     	const x = e.offsetX,
             y = e.offsetY;
