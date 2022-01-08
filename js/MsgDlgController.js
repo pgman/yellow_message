@@ -44,6 +44,11 @@ class MsgDlgController {
             MsgDlgModel.clickType = type;
         });
 
+        $('#msgdlg-shuffle-order-button').click(e => {
+            MsgDlgModel.shuffleOrder(e);
+            MsgDlgView.update();
+        });
+
         $('#msgdlg-block-canvas').contextmenu(e => false);
 
         $('#msgdlg-block-canvas').click(e => {
