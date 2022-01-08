@@ -74,6 +74,8 @@ class Model {
         Model.health = -1;                  // イエローデビルの体力は非表示
         Model.healthAnimMode = '';
         Model.healthFrameCount = 0;
+
+        Model.lastCount = -1;
         
         Model.rockX = 0;
         Model.rockY = 0;
@@ -911,22 +913,24 @@ class Model {
                 Model.pause('main');
                 Model.play('explosion');
                 Model.enablePause = false;
-                // ここからの処理が適当すぎる                
                 Model.rockAnimMode = '';
-                setTimeout(() => { 
-                    Model.play('clear'); 
-                }, 2000 * Define.BASE_FPS / Model.settings.fps);
-                setTimeout(() => { 
-                    Model.reset(); 
-                    View.update();
-                    $('#create-message-button, #edit-message-button, #delete-message-button')
-                    .button({ disabled: false });
-                    $('#message-select').selectmenu({ disabled: false });
-                }, 10000 * Define.BASE_FPS / Model.settings.fps);
+                Model.initLast();
             } else {
                 Model.blockData[Model.blockDataIndex].damaged = true;
                 Model.play('enemyDamage');
             }            
+        }
+    }
+    static initLast() {
+        Model.lastCount = 0;
+    }
+    static lastFrame() {
+        if(Model.lastCount < 0) { return; }
+        Model.lastCount += 1;
+        if(Model.lastCount === 120) {
+            Model.play('clear'); 
+        } else if(Model.lastCount === 600) {
+            Controller.finish();
         }
     }
     static initEnemyShot(startX, startY, endX, endY) {
@@ -1002,5 +1006,7 @@ class Model {
         Model.jumpBlock();
         // ショットが当たるか判定 
         Model.hitEye();
+        // 破壊した後の処理
+        Model.lastFrame();
     }
 }
