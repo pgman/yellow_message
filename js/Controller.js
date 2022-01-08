@@ -119,12 +119,19 @@ class Controller {
         /* debug start */
         $('body').keydown(e => {
             if(e.code === 'ArrowRight') {
-                //Controller.frame();
+            //    Controller.frame();
             } else if(e.code === 'KeyP') {
-                //Util.downloadAsPng('ym.png');
+            //    Util.downloadAsPng('ym.png');
             }        
         });        
         /* debug end */
+    }
+    static finish() {
+        Model.reset(); 
+        View.update();
+        $('#create-message-button, #edit-message-button, #delete-message-button')
+        .button({ disabled: false });
+        $('#message-select').selectmenu({ disabled: false });
     }
 
     static frame() {
@@ -137,7 +144,9 @@ class Controller {
         const endTime = new Date();
         // startTime から endTime までの処理時間をミリ秒で測定
         const diff = endTime - startTime;
-        const interval = 1000 / Model.settings.fps - diff;        
-        Model.timeoutId = setTimeout(Controller.loop, interval);
+        const interval = 1000 / Model.settings.fps - diff;    
+        if(Model.timeoutId !== -1) {
+            Model.timeoutId = setTimeout(Controller.loop, interval);
+        }        
     }
 }
