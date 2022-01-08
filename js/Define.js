@@ -1,6 +1,6 @@
 const Define = {
 	// アプリケーションのバージョン
-	APP_VERSION: '1.0',
+	APP_VERSION: '1.1',
 	// アプリケーションの名称
 	APP_NAME: 'Yellow Message',
 	// Local Storage のキー
